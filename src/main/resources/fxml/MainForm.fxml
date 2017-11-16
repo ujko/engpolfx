@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" styleClass="root" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="engpol.controllers.MainFormController">
+   <left>
+      <VBox alignment="TOP_CENTER" prefHeight="800.0" prefWidth="209.0" BorderPane.alignment="TOP_CENTER">
+         <children>
+            <Label alignment="CENTER" styleClass="labels" stylesheets="/fxml/css/styles.css" text="Engpol by Ujo" textAlignment="CENTER" />
+            <Label text="Słówko angielskie" textFill="#daa6a6">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="engWordTF" onAction="#engWordLblKeyReleased" />
+            <Label text="Słówko polskie" textFill="#daa6a6">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="polWordTF" onKeyReleased="#writeTF" />
+            <Label text="Sentencja angielska" textFill="#daa6a6">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="engSentenceTF" onKeyReleased="#writeTF" />
+            <Label text="Tłumaczenie" textFill="#daa6a6">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="polSentenceTF" onKeyReleased="#writeTF" />
+            <Button fx:id="addWordBtn" mnemonicParsing="false" onAction="#addWord" prefHeight="50.0" prefWidth="200.0" text="Dodaj" textAlignment="CENTER" textFill="#c68686">
+               <VBox.margin>
+                  <Insets top="80.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+         <padding>
+            <Insets top="20.0" />
+         </padding>
+      </VBox>
+   </left>
+   <center>
+      <TableView fx:id="engpolTableView" onKeyReleased="#tblViewOnKeyPress" onMouseClicked="#tblViewOnMouseClicked" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <effect>
+            <Blend />
+         </effect>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#deleteItem" text="Delete" />
+                  <MenuItem mnemonicParsing="false" onAction="#updateItem" text="Update" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </TableView>
+   </center>
+   <bottom>
+      <VBox prefHeight="179.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="engWordLbl" textFill="#eb0f0f">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="50.0" top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="polWordLbl" textFill="#eb0f0f">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="50.0" top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="engSentenceLbl" textFill="#eb0f0f">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="50.0" top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="polSentenceLbl" textFill="#eb0f0f">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="50.0" top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </bottom>
+</BorderPane>
